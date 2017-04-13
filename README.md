@@ -32,4 +32,4 @@ Example: if `sbox[state[i][j]] = 5` it replaces that value `state[i][j]` with th
 
 
 ### Challenge :
-Find a way of reducing the keyspace by injecting a fault. The keyspace should be lower than 2^64
+Find a way of reducing the keyspace by injecting a fault in the `LED64HR.py`. The keyspace should be lower than 2^64. You can use the `attack.py` to test the C' faulted cypher and calculate the key space.
