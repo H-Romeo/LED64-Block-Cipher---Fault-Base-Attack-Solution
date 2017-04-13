@@ -4,6 +4,7 @@ Fault-based Attacks on LED64 Block Cipher and possible fix for it
 [LED64 Block Cipher]( https://sites.google.com/site/ledblockcipher/downloads)
 LED64 Design : 
 ![alt tag](https://sites.google.com/site/ledblockcipher/design/LED64.png?attredirects=0)
+
 Official files from developers can be found in the folder [Official LED](https://github.com/H-Romeo/LED64-Block-Cipher---Fault-Base-Attack-Solution/tree/master/Official%20LED)
 
 LED64 Fault base attack :
@@ -25,6 +26,9 @@ The attacker aims at determining the value of the secret key K. It is assumed th
 Since the same P and the same K is used in both cases, the states before fault injection are identical. The fault will propagate to the output, resulting in the faulty ciphertext C' that differs from the correct ciphertext C. The attack requires C and C' to  obtain K by differential cryptanalysis. 
 
 ## Solution :
+The solution implemented in LED64HR.py dose not fix the fault base attack, but rather makes it harder.
+At each SubCell call, where the value `x` is replaced by a value `SBox[x]` according to a lookup table `SBox`, now it shifts the original `SBox` by 1 at each call and it replaces the value `x` with the n'th prime value for the `SBox[x]` value.
+Example: if `sbox[state[i][j]] = 5` it replaces that value `state[i][j]` with the 5'th prime number, which is `11`
 
 
 ### Challenge :
