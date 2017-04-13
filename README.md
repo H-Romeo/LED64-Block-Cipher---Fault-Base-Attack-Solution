@@ -20,5 +20,12 @@ To run the scripts, no other dependecies except Python 2.7 are required :
 python2.7 led.py
 ```
 
+## The Fault :
+The attacker aims at determining the value of the secret key K. It is assumed that he can apply a plaintext P of his/her choice to the inputs of a circuit implementing LED-64 and observe the calculated ciphertext C at the outputs of the circuit. Then the calculation is repeated with the same P as the input, and a fault injection is performed. The fault is injected into the state at the beginning of round 30 (i.e., three rounds before the termination of the algorithm)
+Since the same P and the same K is used in both cases, the states before fault injection are identical. The fault will propagate to the output, resulting in the faulty ciphertext C' that differs from the correct ciphertext C. The attack requires C and C' to  obtain K by differential cryptanalysis. 
+
+## Solution :
+
+
 ### Challenge :
 Find a way of reducing the keyspace by injecting a fault. The keyspace should be lower than 2^64
