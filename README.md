@@ -26,7 +26,7 @@ The attacker aims at determining the value of the secret key K. It is assumed th
 Since the same P and the same K is used in both cases, the states before fault injection are identical. The fault will propagate to the output, resulting in the faulty ciphertext C' that differs from the correct ciphertext C. The attack requires C and C' to  obtain K by differential cryptanalysis. 
 
 ## Solution :
-The solution implemented in LED64HR.py dose not fix the fault base attack, but rather makes it harder.
+The solution implemented in LED64HR.py dose not fix the fault base attack, but rather makes it harder to crack.
 At each SubCell call, where the value `x` is replaced by a value `SBox[x]` according to a lookup table `SBox`, now it shifts the original `SBox` by 1 at each call and it replaces the value `x` with the n'th prime value for the `SBox[x]` value.
 Example: if `sbox[state[i][j]] = 5` it replaces that value `state[i][j]` with the 5'th prime number, which is `11`
 
